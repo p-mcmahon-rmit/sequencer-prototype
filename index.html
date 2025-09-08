@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tone-sequencer</title>
+  <script src="https://unpkg.com/tone@15.0.4/build/Tone.js  "></script>
+  <script src="sequencer.js" defer></script>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+  <dialog id="introDialog">
+    <p>This synthesizer will make some noise, please check your system's volume setting.</p>
+    <button id="dialogCloseButton" autofocus>OK</button>
+  </dialog>
+
+  <h1>tone sequencer</h1>
+  <button id="transport-toggle">⏵</button>
+
+  <fieldset>
+    <legend>Sequence 01</legend>
+    <div class="seqStepBox">
+      <label>
+        <input type="checkbox" class="seqStep" id="step01" name="seq01" value="step01" />
+        step 01 : c3 + 
+        <input type="number" name="" class="pitchStep" value ="0" >
+      </label>
+    </div>
+    <div class="seqStepBox">
+      <label>
+        <input type="checkbox" class="seqStep" id="step02" name="seq01" value="step02" />
+        step 02 : c3 + 
+        <input type="number" name="" class="pitchStep" value ="0" >
+      </label>
+    </div>
+    <div class="seqStepBox">
+      <label>
+        <input type="checkbox" class="seqStep" id="step03" name="seq01" value="step03" />
+        step 03 : c3 + 
+        <input type="number" name="" class="pitchStep" value ="0" >
+      </label>
+    </div>
+    <div class="seqStepBox">
+      <label>
+        <input type="checkbox" class="seqStep" id="step04" name="seq01" value="step04" />
+        step 04 : c3 + 
+        <input type="number" name="" class="pitchStep" value ="0" >
+      </label>
+    </div>
+    <div class="seqStepBox">
+      <label>
+        <input type="checkbox" class="seqStep" id="step05" name="seq01" value="step05" />
+        step 05 : c3 + 
+        <input type="number" name="" class="pitchStep" value ="0" >
+      </label>
+    </div>
+    <div class="seqStepBox">
+      <label>
+        <input type="checkbox" class="seqStep" id="step06" name="seq01" value="step06" />
+        step 06 : c3 + 
+        <input type="number" name="" class="pitchStep" value ="0" >
+      </label>
+    </div>
+    <div class="seqStepBox">
+      <label>
+        <input type="checkbox" class="seqStep" id="step07" name="seq01" value="step07" />
+        step 07 : c3 + 
+        <input type="number" name="" class="pitchStep" value ="0" >
+      </label>
+    </div>
+    <div class="seqStepBox">
+      <label>
+        <input type="checkbox" class="seqStep" id="step08" name="seq01" value="step08" />
+        step 08 : c3 + 
+        <input type="number" name="" class="pitchStep" value ="0" >
+      </label>
+    </div>
+  </fieldset>
+</body>
+</html>
