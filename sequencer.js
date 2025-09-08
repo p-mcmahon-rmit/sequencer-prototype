@@ -71,9 +71,21 @@ let stepInputs = Array.from(document.getElementsByClassName("seqStep"));
 
 stepInputs.forEach((stepInput, index) => {
 
+  let pitchInput = stepInput.nextElementSibling;
+
+  let defaultNote;
+  let newValue = pitchInput.value;
+  let quotient = Math.floor(newValue/12);
+  let remainder = newValue % 12;
+  if(remainder >= 0){
+    defaultNote = `${noteNames[remainder]}${3 + quotient}`;
+  } else {
+    defaultNote = `${noteNames[noteNames.length + remainder]}${3 + quotient}`;
+  }
+
   currentSequence.push({
     stepIndex : index,
-    note: "c3",
+    note: defaultNote,
     active: stepInput.checked,
     inputElement: stepInput,
     boxElement: stepBoxes[index],
@@ -98,8 +110,7 @@ stepInputs.forEach((stepInput, index) => {
       currentSequence[index].active = true;
     }
   });
-
-  let pitchInput = stepInput.nextElementSibling;
+  
   pitchInput.addEventListener("change", (e) => {
     let newValue = e.target.value;
     let quotient = Math.floor(newValue/12);
