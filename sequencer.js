@@ -93,13 +93,22 @@ let initNotes = [
     0,
     null,
     4,
+    -7,
+    0,
+    2,
+    null,
+    -7
+];
+let betterNotes = [
+    0,
+    null,
+    4,
+    -7,
+    null,
     "reset",
     null,
-    0,
-    "reset",
-    0
+    null
 ];
-let setDefaults = true
 
 stepInputs.forEach((stepInput, index) => {
 
@@ -166,17 +175,38 @@ stepInputs.forEach((stepInput, index) => {
     // update actual note value
     currentSequence[index].note = newNoteValue;
   })
+});
 
-  // only run if defaults present
-  if(setDefaults){
-    if(initNotes[index] === "reset"){
-      //stepInput.click();
-    } else if (typeof initNotes[index] === 'number'){
-      pitchInput.value = initNotes[index];
+// this code is a bit of nonesense required because of how these specific demos are structured to reuse code and need to
+// be able to determine which html file loaded them
+
+let link = document.querySelector("a");
+
+if(link === null){
+  loadSequence(betterNotes);
+} else {
+  if(link.id === "defaults"){
+    loadSequence(initNotes);
+  }
+}
+
+function loadSequence(sequence) {
+  stepInputs.forEach((stepInput, index) => {
+
+    let pitchInput = stepInput.nextElementSibling;
+
+    console.log(index, sequence[index])
+
+    if (typeof sequence[index] === 'number') {
+      pitchInput.value = sequence[index];
+      pitchInput.dispatchEvent(new Event('change'));
+      stepInput.click();
+    } else if (sequence[index] === "reset") {
+      stepInput.click();
       stepInput.click();
     }
-  }
-});
+  });
+}
 
 function nextStep(time){
   /* play note */
