@@ -10,27 +10,8 @@ document.getElementById("introDialogCloseButton").addEventListener("click", () =
 /* because this can be through the above button, or by pressing esc, we tie it to the actual close event */
 /* the referenced toneInit function is defined in toneSetup.js */
 introModal.addEventListener("close", () => {
-  // open info modal on intro close if it exists
-  if(infoModal){
-    infoModal.showModal();
-  }
   synth.chain(Tone.Destination);
 });
-
-// find info modal
-const infoModal = document.getElementById("infoDialog");
-// because i'm demonstrating adding this to a specific page, i'm encapsulating the logic in an if
-if(infoModal){
-
-  document.getElementById("infoDialogOpenButton").addEventListener("click", () => {
-    infoModal.showModal();
-  });
-
-  document.getElementById("infoDialogCloseButton").addEventListener("click", () => {
-    infoModal.close();
-  });
-
-}
 
 /* basic synth for note input */
 
@@ -87,28 +68,6 @@ let currentStep = 0;
 let stepBoxes = Array.from(document.getElementsByClassName("seqStepBox"));
 
 let stepInputs = Array.from(document.getElementsByClassName("seqStep"));
-
-// create default settings
-let initNotes = [
-    0,
-    null,
-    4,
-    -7,
-    0,
-    2,
-    null,
-    -7
-];
-let betterNotes = [
-    0,
-    null,
-    4,
-    -7,
-    null,
-    "reset",
-    null,
-    null
-];
 
 stepInputs.forEach((stepInput, index) => {
 
@@ -176,37 +135,6 @@ stepInputs.forEach((stepInput, index) => {
     currentSequence[index].note = newNoteValue;
   })
 });
-
-// this code is a bit of nonesense required because of how these specific demos are structured to reuse code and need to
-// be able to determine which html file loaded them
-
-let link = document.querySelector("a");
-
-if(link === null){
-  loadSequence(betterNotes);
-} else {
-  if(link.id === "defaults"){
-    loadSequence(initNotes);
-  }
-}
-
-function loadSequence(sequence) {
-  stepInputs.forEach((stepInput, index) => {
-
-    let pitchInput = stepInput.nextElementSibling;
-
-    console.log(index, sequence[index])
-
-    if (typeof sequence[index] === 'number') {
-      pitchInput.value = sequence[index];
-      pitchInput.dispatchEvent(new Event('change'));
-      stepInput.click();
-    } else if (sequence[index] === "reset") {
-      stepInput.click();
-      stepInput.click();
-    }
-  });
-}
 
 function nextStep(time){
   /* play note */
