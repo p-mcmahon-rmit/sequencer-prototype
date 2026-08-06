@@ -8,16 +8,33 @@ body {
   background-color: red;
 }
 
-.seqStepsBox {
-  display: flex;
+/*pitch input*/
+.pitchInput {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid grey;
+  border-radius: 2px;
+  padding: 0.1rem;
+  font-size: 0.9rem;
 }
-
-.seqStepBox {
+.pitchValue {
+  min-width: 3rch;
+}
+.pitchChangeButtons {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 1rem;
 }
-
-.pitchStep {
-  width: 4rch
+.pitchUpButton, .pitchDownButton {
+  background-color: #e1e1e1;
+  color: grey;
+  border: none;
+  font-size: 0.3rem;
+}
+.pitchUpButton:hover, .pitchDownButton:hover {
+  background-color: #c5c5c5;
+}
+.pitchUpButton:active, .pitchDownButton:active {
+  background-color: #a1a1a1;
 }
