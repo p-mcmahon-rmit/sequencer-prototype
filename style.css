@@ -8,6 +8,16 @@ body {
   background-color: red;
 }
 
+.seqStepsBox {
+  display: flex;
+  gap: 0.25rem;
+}
+.seqStepBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /*pitch input*/
 .pitchInput {
   display: inline-flex;

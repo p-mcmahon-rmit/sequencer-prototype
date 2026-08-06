@@ -97,17 +97,17 @@ stepInputs.forEach((stepInput, index) => {
       stepInput.readOnly = stepInput.indeterminate = true;
       currentSequence[index].active = false;
       // change label
-      stepInput.parentElement.lastElementChild.innerText = "off";
+      //stepInput.parentElement.lastElementChild.innerText = "off";
       if (index !== 0) {
         currentSequence[index-1].reset = true;
         // change label
-        stepInput.parentElement.lastElementChild.innerText = "reset";
+        //stepInput.parentElement.lastElementChild.innerText = "reset";
       }
       currentSequence[index].active = false;
     } else {
       currentSequence[index].active = true;
       // change label
-      stepInput.parentElement.lastElementChild.innerText = currentSequence[index].note;
+      //stepInput.parentElement.lastElementChild.innerText = currentSequence[index].note;
     }
   });
 
