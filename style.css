@@ -7,3 +7,17 @@ body {
 .activeStep {
   background-color: red;
 }
+
+.seqStepsBox {
+  display: flex;
+}
+
+.seqStepBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pitchStep {
+  width: 4rch
+}
