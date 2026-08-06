@@ -9,13 +9,45 @@ body {
 }
 
 .seqStepsBox {
-  display: flex;
-  gap: 0.25rem;
+  width: 24rem;
+  height: 24rem;
+  display: grid;
+  align-content: center;
+  justify-items: center;
 }
+.seqStepBox:nth-child(1){
+  transform: translate(10rem);
+}
+.seqStepBox:nth-child(2){
+  transform: rotate(45deg) translate(10rem) rotate(-45deg);
+}
+.seqStepBox:nth-child(3){
+  transform: rotate(90deg) translate(10rem) rotate(-90deg);
+}
+.seqStepBox:nth-child(4){
+  transform: rotate(135deg) translate(10rem) rotate(-135deg);
+}
+.seqStepBox:nth-child(5){
+  transform: rotate(180deg) translate(10rem) rotate(-180deg);
+}
+.seqStepBox:nth-child(6){
+  transform: rotate(225deg) translate(10rem) rotate(-225deg);
+}
+.seqStepBox:nth-child(7){
+  transform: rotate(270deg) translate(10rem) rotate(-270deg);
+}
+.seqStepBox:nth-child(8){
+  transform: rotate(315deg) translate(10rem) rotate(-315deg);
+}
+
+
 .seqStepBox {
+  grid-column: 1/2;
+  grid-row: 1/2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: fit-content;
 }
 
 /*pitch input*/
