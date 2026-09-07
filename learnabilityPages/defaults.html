@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tone-sequencer</title>
   <script src="https://unpkg.com/tone@15.0.4/build/Tone.js"></script>
-  <script src="./toolTipsSequencer.js" defer></script>
-  <link href="./toolTipsStyle.css" rel="stylesheet">
+  <script src="./defaultsSequencer.js" defer></script>
+  <link href="./defaultsStyle.css" rel="stylesheet">
 </head>
 <body>
 
@@ -26,125 +26,117 @@
 
   <h1>tone sequencer</h1>
 
-  <button id="infoDialogOpenButton">ℹ️</button>
+  <button id="infoDialogOpenButton">ℹ️ information</button>
 
-  <button id="transport-toggle">⏵</button>
+  <button id="transport-toggle">⏵ play</button>
 
   <fieldset>
     <legend>Sequence 01</legend>
     <div class="seqStepBox">
       <label>
-        <input type="checkbox" class="seqStep" id="step01" name="seq01" value="step01" />
-        step 01
+        <input type="checkbox" class="seqStep" id="step01" name="seq01" value="step01" checked />
+        step 01 - pitch:
       </label>
-      <div class="pitchInput" aria-describedby="input-tip01">
-        <span class="pitchValue">c3</span>
+      <div class="pitchInput">
+        <span class="pitchValue">e3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
-        <div role="tooltip" class="pitchInputTip" id="input-tip01">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
       <label>
-        <input type="checkbox" class="seqStep" id="step02" name="seq02" value="step02" />
-        step 02
+        <input type="checkbox" class="seqStep" id="step02" name="seq02" value="step02" checked />
+        step 02 - pitch:
       </label>
-      <div class="pitchInput" aria-describedby="input-tip02">
-        <span class="pitchValue">c3</span>
+      <div class="pitchInput">
+        <span class="pitchValue">d3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
-        <div role="tooltip" class="pitchInputTip" id="input-tip02">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
       <label>
-        <input type="checkbox" class="seqStep" id="step03" name="seq03" value="step03" />
-        step 03
+        <input type="checkbox" class="seqStep" id="step03" name="seq03" value="step03" checked />
+        step 03 - pitch:
       </label>
-      <div class="pitchInput" aria-describedby="input-tip03">
+      <div class="pitchInput">
         <span class="pitchValue">c3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
-        <div role="tooltip" class="pitchInputTip" id="input-tip03">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
       <label>
         <input type="checkbox" class="seqStep" id="step04" name="seq04" value="step04" />
-        step 04
+        step 04 - pitch:
       </label>
-      <div class="pitchInput" aria-describedby="input-tip04">
+      <div class="pitchInput">
         <span class="pitchValue">c3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
-        <div role="tooltip" class="pitchInputTip" id="input-tip04">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
       <label>
-        <input type="checkbox" class="seqStep" id="step05" name="seq05" value="step05" />
-        step 05
+        <input type="checkbox" class="seqStep" id="step05" name="seq05" value="step05" checked />
+        step 05 - pitch:
       </label>
-      <div class="pitchInput" aria-describedby="input-tip05">
-        <span class="pitchValue">c3</span>
+      <div class="pitchInput">
+        <span class="pitchValue">e3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
-        <div role="tooltip" class="pitchInputTip" id="input-tip05">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
       <label>
-        <input type="checkbox" class="seqStep" id="step06" name="seq06" value="step06" />
-        step 06
+        <input type="checkbox" class="seqStep" id="step06" name="seq06" value="step06" checked />
+        step 06 - pitch:
       </label>
-      <div class="pitchInput" aria-describedby="input-tip06">
-        <span class="pitchValue">c3</span>
+      <div class="pitchInput">
+        <span class="pitchValue">d3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
-        <div role="tooltip" class="pitchInputTip" id="input-tip06">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
       <label>
-        <input type="checkbox" class="seqStep" id="step07" name="seq07" value="step07" />
-        step 07
+        <input type="checkbox" class="seqStep" id="step07" name="seq07" value="step07" checked />
+        step 07 - pitch:
       </label>
-      <div class="pitchInput" aria-describedby="input-tip07">
+      <div class="pitchInput">
         <span class="pitchValue">c3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
-        <div role="tooltip" class="pitchInputTip" id="input-tip07">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
       <label>
         <input type="checkbox" class="seqStep" id="step08" name="seq08" value="step08" />
-        step 08
+        step 08 - pitch:
       </label>
-      <div class="pitchInput" aria-describedby="input-tip08">
+      <div class="pitchInput">
         <span class="pitchValue">c3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
-        <div role="tooltip" class="pitchInputTip" id="input-tip08">pitch shift in semitones</div>
       </div>
     </div>
   </fieldset>
-  <a href="./defaults.html">Next Example - Defaults</a>
+  <a href="./defaults.html">Next Example - Better Defaults</a>
 </body>
 </html>
