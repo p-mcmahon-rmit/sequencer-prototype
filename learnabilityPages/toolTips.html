@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tone-sequencer</title>
   <script src="https://unpkg.com/tone@15.0.4/build/Tone.js"></script>
-  <script src="./infoModalSequencer.js" defer></script>
-  <link href="../style.css" rel="stylesheet">
+  <script src="./toolTipsSequencer.js" defer></script>
+  <link href="./toolTipsStyle.css" rel="stylesheet">
 </head>
 <body>
 
@@ -37,12 +37,13 @@
         <input type="checkbox" class="seqStep" id="step01" name="seq01" value="step01" />
         step 01
       </label>
-      <div class="pitchInput">
+      <div class="pitchInput" aria-describedby="input-tip01">
         <span class="pitchValue">c3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
+        <div role="tooltip" class="pitchInputTip" id="input-tip01">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
@@ -50,12 +51,13 @@
         <input type="checkbox" class="seqStep" id="step02" name="seq02" value="step02" />
         step 02
       </label>
-      <div class="pitchInput">
+      <div class="pitchInput" aria-describedby="input-tip02">
         <span class="pitchValue">c3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
+        <div role="tooltip" class="pitchInputTip" id="input-tip02">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
@@ -63,12 +65,13 @@
         <input type="checkbox" class="seqStep" id="step03" name="seq03" value="step03" />
         step 03
       </label>
-      <div class="pitchInput">
+      <div class="pitchInput" aria-describedby="input-tip03">
         <span class="pitchValue">c#3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
+        <div role="tooltip" class="pitchInputTip" id="input-tip03">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
@@ -76,12 +79,13 @@
         <input type="checkbox" class="seqStep" id="step04" name="seq04" value="step04" />
         step 04
       </label>
-      <div class="pitchInput">
+      <div class="pitchInput" aria-describedby="input-tip04">
         <span class="pitchValue">c3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
+        <div role="tooltip" class="pitchInputTip" id="input-tip04">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
@@ -89,12 +93,13 @@
         <input type="checkbox" class="seqStep" id="step05" name="seq05" value="step05" />
         step 05
       </label>
-      <div class="pitchInput">
+      <div class="pitchInput" aria-describedby="input-tip05">
         <span class="pitchValue">c3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
+        <div role="tooltip" class="pitchInputTip" id="input-tip05">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
@@ -102,12 +107,13 @@
         <input type="checkbox" class="seqStep" id="step06" name="seq06" value="step06" />
         step 06
       </label>
-      <div class="pitchInput">
+      <div class="pitchInput" aria-describedby="input-tip06">
         <span class="pitchValue">c3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
+        <div role="tooltip" class="pitchInputTip" id="input-tip06">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
@@ -115,12 +121,13 @@
         <input type="checkbox" class="seqStep" id="step07" name="seq07" value="step07" />
         step 07
       </label>
-      <div class="pitchInput">
+      <div class="pitchInput" aria-describedby="input-tip07">
         <span class="pitchValue">c3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
+        <div role="tooltip" class="pitchInputTip" id="input-tip07">pitch shift in semitones</div>
       </div>
     </div>
     <div class="seqStepBox">
@@ -128,12 +135,13 @@
         <input type="checkbox" class="seqStep" id="step08" name="seq08" value="step08" />
         step 08
       </label>
-      <div class="pitchInput">
+      <div class="pitchInput" aria-describedby="input-tip08">
         <span class="pitchValue">c3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
         </div>
+        <div role="tooltip" class="pitchInputTip" id="input-tip08">pitch shift in semitones</div>
       </div>
     </div>
   </fieldset>
