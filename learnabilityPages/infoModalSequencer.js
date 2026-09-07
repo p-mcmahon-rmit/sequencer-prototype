@@ -1,15 +1,25 @@
-/* find intro modal */
+/* find intro and info modals */
 const introModal = document.getElementById("introDialog");
+const infoModal = document.getElementById("infoDialog");
 /* to get the backdrop working we need to open the modal with js */
 introModal.showModal();
 /* find modal close button and add an eventlistener */
 document.getElementById("introDialogCloseButton").addEventListener("click", () => {
   introModal.close();
 });
+// we do the same for our info modal
+document.getElementById("infoDialogCloseButton").addEventListener("click", () => {
+  infoModal.close();
+});
+// and we also want to open it using the info button
+document.getElementById("infoDialogOpenButton").addEventListener("click", () => {
+  infoModal.showModal();
+});
 /* finally we want to initialize the synthesizer when the modal is closed */
 /* because this can be through the above button, or by pressing esc, we tie it to the actual close event */
-/* the referenced toneInit function is defined in toneSetup.js */
 introModal.addEventListener("close", () => {
+  // for this info modal example we can also open the dialog on the intro one closing
+  infoModal.showModal();
   synth.chain(Tone.Destination);
 });
 
