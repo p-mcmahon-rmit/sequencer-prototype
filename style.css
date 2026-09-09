@@ -40,16 +40,16 @@ body {
 }
 
 /*1*/
-fieldset {
-  display: flex;
-  /*gap: 1rem;*/
-}
+/*fieldset {*/
+/*  display: flex;*/
+/*  !*gap: 1rem;*!*/
+/*}*/
 
-.seqStepBox{
-  display: flex;
-  flex-direction: column;
-  /*align-items: center;*/
-}
+/*.seqStepBox{*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  !*align-items: center;*!*/
+/*}*/
 
 /*2*/
 /*.seqStepsBox {*/
