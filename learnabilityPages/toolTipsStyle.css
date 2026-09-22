@@ -51,5 +51,9 @@ body {
   /*this only works because the parent has position: relative*/
   left: 100%;
   margin-left: 0.25rem;
-  width: 20rch;
+  white-space: nowrap;
+  max-width: 20rch;
+  border: 0.1rem black solid;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
 }

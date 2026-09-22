@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tone-sequencer</title>
   <script src="https://unpkg.com/tone@15.0.4/build/Tone.js"></script>
-  <script src="./defaultsSequencer.js" defer></script>
+  <script src="./betterDefaultsSequencer.js" defer></script>
   <link href="./defaultsStyle.css" rel="stylesheet">
 </head>
 <body>
@@ -34,11 +34,11 @@
     <legend>Sequence 01</legend>
     <div class="seqStepBox">
       <label>
-        <input type="checkbox" class="seqStep" id="step01" name="seq01" value="step01" />
+        <input type="checkbox" class="seqStep" id="step01" name="seq01" value="step01" checked/>
         step 01 - pitch:
       </label>
       <div class="pitchInput">
-        <span class="pitchValue">c3</span>
+        <span class="pitchValue">e3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
@@ -47,11 +47,11 @@
     </div>
     <div class="seqStepBox">
       <label>
-        <input type="checkbox" class="seqStep" id="step02" name="seq02" value="step02" />
+        <input type="checkbox" class="seqStep" id="step02" name="seq02" value="step02" checked/>
         step 02 - pitch:
       </label>
       <div class="pitchInput">
-        <span class="pitchValue">c3</span>
+        <span class="pitchValue">d3</span>
         <div class="pitchChangeButtons">
           <button class="pitchUpButton">▲</button>
           <button class="pitchDownButton">▼</button>
@@ -73,7 +73,7 @@
     </div>
     <div class="seqStepBox">
       <label>
-        <input type="checkbox" class="seqStep" id="step04" name="seq04" value="step04" />
+        <input type="checkbox" class="seqStep" id="step04" name="seq04" value="step04" checked/>
         step 04 - pitch:
       </label>
       <div class="pitchInput">
@@ -86,7 +86,7 @@
     </div>
     <div class="seqStepBox">
       <label>
-        <input type="checkbox" class="seqStep" id="step05" name="seq05" value="step05" />
+        <input type="checkbox" class="seqStep" id="step05" name="seq05" value="step05" checked/>
         step 05 - pitch:
       </label>
       <div class="pitchInput">

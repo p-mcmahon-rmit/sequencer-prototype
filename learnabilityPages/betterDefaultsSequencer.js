@@ -135,6 +135,9 @@ stepInputs.forEach((stepInput, index) => {
   pitchInput.querySelector(".pitchUpButton").addEventListener("click", pitchStepUp);
   pitchInput.querySelector(".pitchDownButton").addEventListener("click", pitchStepDown);
 
+  if(index === 5){
+    stepInput.dispatchEvent(new Event("click"));
+  }
 });
 
 function nextStep(time){
