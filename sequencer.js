@@ -10,27 +10,8 @@ document.getElementById("introDialogCloseButton").addEventListener("click", () =
 /* because this can be through the above button, or by pressing esc, we tie it to the actual close event */
 /* the referenced toneInit function is defined in toneSetup.js */
 introModal.addEventListener("close", () => {
-  // open info modal on intro close if it exists
-  if(infoModal){
-    infoModal.showModal();
-  }
   synth.chain(Tone.Destination);
 });
-
-// find info modal
-const infoModal = document.getElementById("infoDialog");
-// because i'm demonstrating adding this to a specific page, i'm encapsulating the logic in an if
-if(infoModal){
-
-  document.getElementById("infoDialogOpenButton").addEventListener("click", () => {
-    infoModal.showModal();
-  });
-
-  document.getElementById("infoDialogCloseButton").addEventListener("click", () => {
-    infoModal.close();
-  });
-
-}
 
 /* basic synth for note input */
 
@@ -50,7 +31,7 @@ const noteNames = [
   "a",
   "a#",
   "b",
-]
+];
 
 /* transport set up : will add bpm later */
 
@@ -88,41 +69,13 @@ let stepBoxes = Array.from(document.getElementsByClassName("seqStepBox"));
 
 let stepInputs = Array.from(document.getElementsByClassName("seqStep"));
 
-// create default settings
-let initNotes = [
-    0,
-    null,
-    4,
-    -7,
-    0,
-    2,
-    null,
-    -7
-];
-let betterNotes = [
-    0,
-    null,
-    4,
-    -7,
-    null,
-    "reset",
-    null,
-    null
-];
+let pitchInputs = Array.from(document.getElementsByClassName("pitchInput"));
 
 stepInputs.forEach((stepInput, index) => {
 
-  let pitchInput = stepInput.nextElementSibling;
+  let pitchInput = pitchInputs[index];
 
-  let defaultNote;
-  let newValue = pitchInput.value;
-  let quotient = Math.floor(newValue/12);
-  let remainder = newValue % 12;
-  if(remainder >= 0){
-    defaultNote = `${noteNames[remainder]}${3 + quotient}`;
-  } else {
-    defaultNote = `${noteNames[noteNames.length + remainder]}${3 + quotient}`;
-  }
+  let defaultNote = pitchInput.querySelector(".pitchValue").innerHTML;
 
   currentSequence.push({
     stepIndex : index,
@@ -144,69 +97,26 @@ stepInputs.forEach((stepInput, index) => {
       stepInput.readOnly = stepInput.indeterminate = true;
       currentSequence[index].active = false;
       // change label
-      stepInput.parentElement.lastElementChild.innerText = "off";
+      //stepInput.parentElement.lastElementChild.innerText = "off";
       if (index !== 0) {
         currentSequence[index-1].reset = true;
         // change label
-        stepInput.parentElement.lastElementChild.innerText = "reset";
+        //stepInput.parentElement.lastElementChild.innerText = "reset";
       }
       currentSequence[index].active = false;
     } else {
       currentSequence[index].active = true;
       // change label
-      stepInput.parentElement.lastElementChild.innerText = currentSequence[index].note;
+      //stepInput.parentElement.lastElementChild.innerText = currentSequence[index].note;
     }
   });
-  
-  pitchInput.addEventListener("change", (e) => {
-    let newValue = e.target.value;
-    let quotient = Math.floor(newValue/12);
-    let remainder = newValue % 12;
-    let newNoteValue;
-    if(remainder >= 0){
-      newNoteValue = `${noteNames[remainder]}${3 + quotient}`;
-    } else {
-      newNoteValue = `${noteNames[noteNames.length + remainder]}${3 + quotient}`;
-    }
-    // if active change label
-    if(currentSequence[index].active){
-      pitchInput.nextElementSibling.textContent = newNoteValue;
-    }
-    // update actual note value
-    currentSequence[index].note = newNoteValue;
-  })
+
+  pitchInput.querySelector(".pitchUpButton").dataset.seqNumber = index;
+  pitchInput.querySelector(".pitchDownButton").dataset.seqNumber = index;
+  pitchInput.querySelector(".pitchUpButton").addEventListener("click", pitchStepUp);
+  pitchInput.querySelector(".pitchDownButton").addEventListener("click", pitchStepDown);
+
 });
-
-// this code is a bit of nonesense required because of how these specific demos are structured to reuse code and need to
-// be able to determine which html file loaded them
-
-let link = document.querySelector("a");
-
-if(link === null){
-  loadSequence(betterNotes);
-} else {
-  if(link.id === "defaults"){
-    loadSequence(initNotes);
-  }
-}
-
-function loadSequence(sequence) {
-  stepInputs.forEach((stepInput, index) => {
-
-    let pitchInput = stepInput.nextElementSibling;
-
-    console.log(index, sequence[index])
-
-    if (typeof sequence[index] === 'number') {
-      pitchInput.value = sequence[index];
-      pitchInput.dispatchEvent(new Event('change'));
-      stepInput.click();
-    } else if (sequence[index] === "reset") {
-      stepInput.click();
-      stepInput.click();
-    }
-  });
-}
 
 function nextStep(time){
   /* play note */
@@ -230,4 +140,42 @@ function nextStep(time){
   } else {
     currentStep ++;
   }
+}
+
+function pitchStepUp(e){
+  // finds string which may be 2 or 3 characters
+  let valueElement = e.target.parentElement.parentElement.querySelector(".pitchValue");
+  let oldValue = valueElement.innerHTML;
+  let oldNote = oldValue.substring(0, oldValue.length - 1);
+  let newNote;
+  let octave = oldValue.substring(oldValue.length - 1, oldValue.length);
+  // need to handle if we're going up to the next octave
+  if(oldNote === "b") {
+    octave = parseInt(octave) + 1;
+    newNote = noteNames[0];
+  } else {
+    let oldNoteIndex = noteNames.indexOf(oldNote);
+    newNote = noteNames[oldNoteIndex + 1];
+  }
+  valueElement.innerHTML = newNote + octave;
+  currentSequence[e.target.dataset.seqNumber].note = newNote + octave;
+}
+function pitchStepDown(e){
+  // finds string which may be 2 or 3 characters
+  let valueElement = e.target.parentElement.parentElement.querySelector(".pitchValue");
+  let oldValue = valueElement.innerHTML;
+  let oldNote = oldValue.substring(0, oldValue.length - 1);
+  let newNote;
+  let octave = oldValue.substring(oldValue.length - 1, oldValue.length);
+  // need to handle if we're going up to the next octave
+  if(oldNote === "c") {
+    octave = parseInt(octave) - 1;
+    newNote = noteNames[noteNames.length - 1];
+  } else {
+    let oldNoteIndex = noteNames.indexOf(oldNote);
+    newNote = noteNames[oldNoteIndex - 1];
+  }
+  valueElement.innerHTML = newNote + octave;
+  console.log(e.target.dataset.seqNumber);
+  currentSequence[e.target.dataset.seqNumber].note = newNote + octave;
 }
